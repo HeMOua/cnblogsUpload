@@ -1,0 +1,69 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: #1B1B1B;
+    color: white;
+    -webkit-user-select: none;
+}
+div.funcBox{   
+    height: 90px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+div.funcBox span{
+    display: block;
+    padding: 0 10px;
+    height: 30px;
+    text-align: center;
+    border: 2px solid #DEDEDE;
+    border-radius: 18px;
+    line-height: 30px;
+    color: #DEDEDE;
+}
+div.funcBox span:hover{
+    cursor: pointer;
+    border-color: white;
+    color: white;
+}
+div.dragBox{
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-around;
+}
+div.dragArea{
+    margin: 50px;
+    margin-top: 20px;
+    border: 1px dashed white;
+    border-radius: 8px;
+    background-color: #262626;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+div.text{
+    color: #DEDEDE;
+    font-size: 28px;
+}
+div.text > div{
+    font-size: 16px;
+    color: white;
+}
+a{
+    text-decoration: none;
+}
+div.dragArea a{
+    color: #4B9CF5;
+}
+div.dragArea a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}

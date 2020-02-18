@@ -1,0 +1,23 @@
+{
+  "name": "cnblogsupload",
+  "version": "1.0.0",
+  "description": "上传用Markdown编写内的图片到博客园",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "cnblogs",
+    "upload",
+    "image"
+  ],
+  "author": "HeMOu",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^6.0.1"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "mime": "^2.4.4"
+  }
+}
