@@ -10,9 +10,3 @@ window.addEventListener('DOMContentLoaded', () => {
     replaceText(`${type}-version`, process.versions[type])
   }
 })
-
-//判断字符串后缀
-String.prototype.endWith=function(endStr){
-  var d=this.length-endStr.length;
-  return (d>=0&&this.lastIndexOf(endStr)==d)
-}
