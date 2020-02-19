@@ -94,6 +94,10 @@ function handleDragFile(files){
   } else {
     let filePath = files[0].path;
     if (path.extname(filePath) === '.md') {
+      blogsUpload = new BlogsUpload()
+      processerData('#urlUpdateProcess', 0)
+      processerData('#imgUploadProcess', 0)
+      document.getElementById('processMsg').innerHTML = ''
       blogsUpload.setMdFilePath(filePath)
       alterMDImg(filePath)
     } else {
