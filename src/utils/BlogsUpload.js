@@ -47,23 +47,36 @@ class BlogsUpload{
         return images
     }
     
+
+    /**
+     * 上传图片
+     */
     uploadImg(){
         for(let i = 0, len = this._imgs.length; i < len; i++){
             this.ajaxUpload(this._imgs[i])
             // this.testAjaxUpload(this._imgs[i])
+            processerData('#imgUploadProcess', (i+1)/len*100)
         }
     }
 
+    /**
+     * 更改本地图片URL
+     */
     replaceURL(){
+        let size = this._respURLMap.size, i = 0
         for(let search of this._respURLMap.keys()){
+            i += 1
             let regStr = this._mdFile._imgPathMap.get(search)
             let reg = new RegExp(this.dealEscape(regStr), 'g')
             let replace = '!['+ this.fileNameNoSuffix(search) +'](' + this._respURLMap.get(search) + ')'
-            console.log(reg, replace)
             this._mdFile._content = this._mdFile._content.replace(reg, replace)
+            processerData('#urlUpdateProcess', i/size*100)
         }
     }
 
+    /**
+     * 写出文件
+     */
     writeFile(){
         let md = this._mdFile
         let fileName = path.join(md._dirPath, this.fileNameNoSuffix(md._fileName) + '(finish)' + path.extname(md._fileName))
@@ -75,7 +88,7 @@ class BlogsUpload{
 
     parseAndUpload(){
         if(null == this._imgs || this._imgs.length == 0){
-            alert('尚无可上传的图片')
+            showMessage('尚无可上传的图片')
         }else{
             this.uploadImg()
             this.replaceURL()
@@ -84,13 +97,21 @@ class BlogsUpload{
         }
     }
 
+    /**
+     * 测试上传
+     * @param {} file 
+     */
     testAjaxUpload(file){
         let fileName = path.basename(file.path)
         let respURL = this.randomString(10) + '.png'
         this._respURLMap.set(fileName, respURL)
     }
 
-    //通过文件地址上传文件
+
+    /**
+     * 通过文件数据上传文件
+     * @param {File} file 
+     */
     ajaxUpload(file){
         let respURL   
         let formdata = new FormData();
@@ -128,7 +149,7 @@ class BlogsUpload{
     }
 
     /**
-     * 
+     * 获取无后缀的文件名
      * @param {string} fileName 
      */
     fileNameNoSuffix(fileName){
@@ -136,6 +157,10 @@ class BlogsUpload{
         return fileName.substring(0, fileName.length - sufLen)
     }
 
+    /**
+     * 处理转义字符
+     * @param {string} str 
+     */
     dealEscape(str){
         str = str.replace('[', '\\[')
         str = str.replace(']', '\\]')
@@ -143,6 +168,10 @@ class BlogsUpload{
         return str.replace(')', '\\)')
     }
 
+    /**
+     * 获取随机字符串
+     * @param {*} len 
+     */
     randomString(len) {
     　　len = len || 32;
     　　var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    
@@ -153,6 +182,24 @@ class BlogsUpload{
     　　}
     　　return pwd;
     }
+}
+
+function showMessage(msg) {
+    dialog.showMessageBox({
+        type: "info",
+        title: "提示信息",
+        message: msg
+    });
+}
+
+function processerData(obj, num){
+  $(obj).find('.filled').animate({
+    width: num + '%'
+  }, 20, 'linear', ()=>{
+    $(obj).find('.percent').text(num + '%')
+    if(num == 100)
+    document.getElementById('processMsg').innerHTML = '成功！'
+  })
 }
 
 module.exports = BlogsUpload

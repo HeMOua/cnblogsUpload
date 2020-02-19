@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-    <div class="funcBox">
-      <span id="login">登录账号</span>
-      <span id="parseUpload">解析上传</span>
-    </div>
-    <div class="dragBox">
-      <div class="dragArea">        
-        <img src="img/file-upload.png" width="80px" draggable="false">
-        <div class="text">
-          拖放文件
-          <div>
-            或从你电脑中<a class="selectLink">选择一项</a>并开始使用
-          </div>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="funcBox">
+    <span id="login">登录账号</span>
+    <span id="parseUpload">解析上传</span>
+  </div>
+  <div class="dragBox">
+    <div class="dragArea">
+      <img src="img/file-upload.png" id="mdFile" draggable="false">
+      <div class="text">
+        拖放文件
+        <div>
+          或从你电脑中<a class="selectLink">选择一项</a>并开始使用
         </div>
       </div>
-      
-      <div class="dragArea">        
-        <img src="img/image-upload.png" width="80px" draggable="false">
-        <div class="text">
-          拖放图片
-        </div>
     </div>
 
-    <!-- You can also require other files to run in this process -->
-    <script src="../src/renderer.js"></script>
-  </body>
+    <div class="dragArea">
+      <img src="img/image-upload.png" id="imgFile" draggable="false">
+      <div class="text">
+        拖放图片
+      </div>
+    </div>
+  </div>
+  <div class="bar-container">
+    <div class="msg" id="processMsg"></div>
+    <div class="skillbar" id="imgUploadProcess">
+      <div class="filled blue"></div>
+      <span class="title">图片上传进度</span>
+      <span class="percent">0%</span>
+    </div>
+    <div class="skillbar" id="urlUpdateProcess">
+      <div class="filled orange"></div>
+      <span class="title">替换链接进度</span>
+      <span class="percent">0%</span>
+    </div>
+  </div>
+  <!-- You can also require other files to run in this process -->
+  <script src="../src/renderer.js"></script>
+</body>
+
 </html>

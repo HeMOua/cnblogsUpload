@@ -23,6 +23,7 @@ class MDFileUtil{
         this._matchArray = this._content.match(this._reg)
         for(var i = 0, len = this._matchArray.length; i < len; i++){
             let imgRelativePath = this.subBetween(this._matchArray[i], '(', ')')
+            if(imgRelativePath.indexOf('http') == 0)continue
             this._imgPath.push(imgRelativePath)
             this._imgFullPath.push(path.join(this._dirPath,imgRelativePath))
             this._imgPathMap.set(path.basename(imgRelativePath), this._matchArray[i])
