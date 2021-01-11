@@ -25,7 +25,7 @@ $('#parseUpload').on("click", e => {
     session.defaultSession.cookies.get({url: 'https://www.cnblogs.com/'}, (e, cookie)=>{
       let flag = false
       for(let i = 0, len = cookie.length ;i < len; i++){
-        if((cookie[i].name == '.Cnblogs.AspNetCore.Cookies' || cookie[i].name == '.CNBlogsCookie') && cookie[i].session){
+        if(cookie[i].name == '.Cnblogs.AspNetCore.Cookies'){
           flag = true
           blogsUpload.parseAndUpload()
           break
