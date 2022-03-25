@@ -15,7 +15,7 @@
   "author": "HeMOu",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^6.0.1"
+    "electron": "^13.6.6"
   },
   "dependencies": {
     "jquery": "^3.4.1"
