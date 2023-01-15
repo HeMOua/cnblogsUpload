@@ -10,6 +10,19 @@ body{
     color: white;
     -webkit-user-select: none;
 }
+.inputBox {
+    padding: 30px 20px 10px;
+    display: flex;
+}
+.inputBox input {
+    flex: 1;
+    box-sizing: border-box;
+    outline: none;
+    line-height: 30px;
+    height: 30px;
+    border-radius: 3px;
+    text-indent: 8px;
+}
 div.funcBox{   
     height: 90px;
     display: flex;
@@ -57,10 +70,6 @@ div.text{
     font-size: 28px;
     margin-top: 5px;
 }
-div.text > div{
-    font-size: 16px;
-    color: white;
-}
 a{
     text-decoration: none;
 }
@@ -75,19 +84,23 @@ div.dragArea>img{
     width: 80px;
     margin: 5px;
 }
+#rightArea img {
+    border:1px solid red;
+}
 .skillbar{
-    margin: 5px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5px 20px 15px;
     background-color: white;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-radius: 3px;
     height: 25px;
     position: relative;
 }
 .skillbar .filled{
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    width: 0;
+    border-radius: 3px;
     height: 25px;
     float: left;
+    transition: all .6s;
 }
 .skillbar .title{
     color: black;
@@ -112,8 +125,10 @@ div.dragArea>img{
 }
 .bar-container{
     position: relative;
+    
 }
 .bar-container .msg{
+    font-family: Arial, Helvetica, sans-serif;
     position: absolute;
     color: white;
     width: 100%;

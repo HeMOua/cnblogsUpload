@@ -7,25 +7,33 @@
 </head>
 
 <body>
+  <div class="inputBox">
+    <span style="line-height: 30px;">Cookie：</span>
+    <input id="cookieInput" type="text" placeholder="请输入 Cookie 数据">
+  </div>
   <div class="funcBox">
     <span id="login">登录账号</span>
+    <span id="verifyBtn">验证登录</span>
     <span id="parseUpload">解析上传</span>
   </div>
   <div class="dragBox">
     <div class="dragArea">
       <img src="img/file-upload.png" id="mdFile" draggable="false">
       <div class="text">
-        拖放文件
-        <div>
-          或从你电脑中<a class="selectLink">选择一项</a>并开始使用
+        <div id="leftTipDefault">
+          拖放文件
         </div>
+        <div id="leftTip" style="margin-top: 10px; display: none;"></div>
       </div>
     </div>
 
-    <div class="dragArea">
-      <img src="img/image-upload.png" id="imgFile" draggable="false">
+    <div id="rightArea" class="dragArea">
+      <img src="img/image-upload.png" id="imgFile" draggable="false" style="border: none;">
       <div class="text">
-        拖放图片
+        <div id="rightTipDefault">
+          拖放图片
+        </div>
+        <div id="rightTip" style="display: none;"></div>
       </div>
     </div>
   </div>
