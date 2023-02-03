@@ -49,12 +49,12 @@ module.exports = class Uploader {
     for (let i = 0, len = correctRespList.length; i < len ; i++) {
       this._mdFile.replaceUrl(correctRespList[i].fileName, correctRespList[i].message)
       UiUtils.setReplaceBar((i+1)/len)
-      UiUtils.setBarTitle(`成功上传${len}张图片`, true)
     }
+    UiUtils.setBarTitle(`成功上传${correctRespList.length}张图片`, true)
+    // 写出文件
     if (correctRespList.length == 0) {
       UiUtils.setBarTitle(`无可替换链接`, true)
     } else {
-      // 写出文件
       this._mdFile.writeFile()
     }
     // 导出未上传数据
