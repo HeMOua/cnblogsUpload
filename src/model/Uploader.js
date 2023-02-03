@@ -53,9 +53,10 @@ module.exports = class Uploader {
     }
     if (correctRespList.length == 0) {
       UiUtils.setBarTitle(`无可替换链接`, true)
+    } else {
+      // 写出文件
+      this._mdFile.writeFile()
     }
-    // 写出文件
-    this._mdFile.writeFile()
     // 导出未上传数据
     return respList.filter(item => !item.success).map(item => `fileName=${item.fileName}, message=${item.message}`).join('\n')
   }

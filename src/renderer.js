@@ -91,7 +91,7 @@ document.querySelectorAll('div.dragArea').forEach(item => {
 
 // 封装校验登录函数
 function checkLogin(callback) {
-  checkCookieValid(getCookie()).then(isValid => {
+  checkCookieValid(getCookie(true)).then(isValid => {
     if (isValid) {
       if (typeof callback === 'function') callback()
     } else {

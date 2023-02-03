@@ -12,7 +12,7 @@ function checkCookieValid(cookie) {
     }, resp => {
       resp.on('data', data => {
         data = JSON.parse(new TextDecoder().decode(data))
-        const isValid = 'errors' in resp ? false : true
+        const isValid = 'errors' in data ? false : true
         resolve(isValid)
       })
     }).on('error', e => reject(e))
