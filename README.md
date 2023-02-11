@@ -68,10 +68,6 @@ $ npm run package
 
 最后点击解析上传就行，程序会将本地地址替换为链接，并输出为一个副本，不用担心对之前的文本有损伤
 
-## 维护者
-
-[@HeMOua](https://github.com/heMOua/)
-
 ## License
 
-[Apache-2.0 license](https://github.com/HeMOua/cnblogsUpload/blob/master/LICENSE) © HeMOua
+[MIT](https://github.com/HeMOua/cnblogsUpload/blob/master/LICENSE) © HeMOua
